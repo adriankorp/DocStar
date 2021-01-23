@@ -30,7 +30,14 @@ ALLOWED_HOSTS = []
 STATICFILES_DIRS = [
     f"{BASE_DIR}/static",
 ]
-# Application definition
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'sda.doc.star@gmail.com'
+EMAIL_HOST_PASSWORD = 'mycttvbzzlqweezz'
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,9 +46,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'app_viewer',
     'app_accounts',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

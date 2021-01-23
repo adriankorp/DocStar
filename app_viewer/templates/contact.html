@@ -1,5 +1,6 @@
 {% extends "nav_tempaltes.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block nav_bar %}
     <a class="nav-link" href="{% url 'app_viewer:home' %}">Home</a>
@@ -11,16 +12,21 @@
 
 
 
-    <div class="d-flex bd-highlight">
-        <div class="p-2 w-50 bd-highlight">
-
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6 text-left">
+                {{ form.name|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.email|as_crispy_field }}
+            </div>
         </div>
-        <div class="p-2 w-50 bd-highlight">
-
-        </div>
-
-    </div>
-
+        {{ form.subject|as_crispy_field }}
+        {{ form.message|as_crispy_field }}
+        <br>
+        <button type="submit" class="btn btn-success">Send</button>
+    </form>
 
 
 
