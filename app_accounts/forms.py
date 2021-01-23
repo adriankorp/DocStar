@@ -1,25 +1,8 @@
-from django.contrib.auth.forms import (
-    AuthenticationForm, PasswordChangeForm, UserCreationForm
-)
-from django.db.transaction import atomic
-from django.forms import CharField, Form, Textarea
 
-from .models import Profile
+from django import forms
 
-
-class SignUpForm(UserCreationForm):
-
-    class Meta(UserCreationForm.Meta):
-        fields = ['username', 'first_name']
-
-    biography = CharField(label='Opis', widget=Textarea, min_length=40)
-
-    @atomic
-    def save(self, commit=True):
-        self.instance.is_active = False
-        result = super().save(commit)
-        biography = self.cleaned_data['biography']
-        profile = Profile(biography=biography, user=result)
-        if commit:
-            profile.save()
-        return result
+class RegisterForm(forms.Form):
+    user = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+    password_repeat = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
