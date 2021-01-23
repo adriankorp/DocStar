@@ -13,10 +13,10 @@ class MyLoginView(LoginView):
 
 class MyPasswordChangeView(PasswordChangeView):
     template_name = 'form.html'
-    success_url = reverse_lazy('movies')
+    success_url = reverse_lazy('doc')
 
 
 class SignUpView(CreateView):
     template_name = 'form.html'
     form_class = SignUpForm
-    success_url = reverse_lazy('movies')
+    success_url = reverse_lazy('doc')
