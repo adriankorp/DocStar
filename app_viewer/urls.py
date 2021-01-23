@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app_viewer.views import HomePage
+from app_viewer.views import HomePage, DocumentView, SendDocView, ContactView, AboutView
 
 app_name = 'app_viewer'
 
 urlpatterns = [
     path('', HomePage.as_view(), name='home'),
+    path('docs/', DocumentView.as_view(), name='docs'),
+    path('send_doc/', SendDocView.as_view(), name='doc-send'),
+    path('contact/', ContactView.as_view(), name='contact'),
+    path('about_us/', AboutView.as_view(), name='about'),
 ]
