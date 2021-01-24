@@ -8,7 +8,7 @@ from .models import Profile
 
 class SignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
-        fields = ['email', 'first_name']
+        fields = ['email', 'first_name', 'last_name']
 
     @atomic
     def save(self, commit=True):
