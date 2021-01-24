@@ -7,8 +7,7 @@ from django.db.models import Model, OneToOneField, DO_NOTHING, CharField, Boolea
 
 
 class Profile(Model):
-    user = OneToOneField(User, on_delete=DO_NOTHING, primary_key=True)
-    password = CharField(max_length=128)
+    user = OneToOneField(User, on_delete=DO_NOTHING)
     is_pro = BooleanField(default=False)
     name = CharField(max_length=128)
     surname = CharField(max_length=128)
@@ -19,3 +18,5 @@ class ContactBook(Model):
     name = CharField(max_length=128)
     surname = CharField(max_length=128)
     email = EmailField()
+
+
