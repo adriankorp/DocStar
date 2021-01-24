@@ -13,7 +13,7 @@ class SignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         fields = ['username', 'first_name']
 
-    biography = CharField(label='Opowiedz swoją historię z filmami', widget=Textarea, min_length=40)
+    #biography = CharField(label='Opowiedz swoją historię z filmami', widget=Textarea, min_length=40)
 
     @atomic
     def save(self, commit=True):
