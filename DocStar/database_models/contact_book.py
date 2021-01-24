@@ -4,7 +4,7 @@ from DocStar.database_models.profile import Profile
 
 
 class ContactBook(Model):
-    user_id = ForeignKey(User, on_delete=DO_NOTHING)
+    user_id = ForeignKey(Profile, on_delete=DO_NOTHING)
     name = CharField(max_length=128)
     surname = CharField(max_length=128)
     email = EmailField()
