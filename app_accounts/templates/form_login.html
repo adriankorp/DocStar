@@ -1,0 +1,23 @@
+{% extends "home_page.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block login %}
+
+
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+
+        {{ form.username|as_crispy_field }}
+
+        {{ form.password|as_crispy_field }}
+
+        <br>
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+
+
+
+
+{% endblock %}
