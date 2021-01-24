@@ -1,6 +1,6 @@
 from django.db.models import CharField, DateTimeField, ForeignKey, Model, DO_NOTHING, EmailField
 
-from DocStar.database_models.user import User
+from DocStar.database_models.profile import Profile
 
 
 class ContactBook(Model):
