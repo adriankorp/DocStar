@@ -13,7 +13,7 @@ from .forms import (SignUpForm)
 class SignUpView(CreateView):
     template_name = 'form_sign_up.html'
     form_class = SignUpForm
-    success_url = reverse_lazy('doc')
+    success_url = reverse_lazy('app_viewer:home')
 
 
 class MyLoginView(LoginView):

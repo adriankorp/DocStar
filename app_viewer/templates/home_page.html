@@ -5,22 +5,24 @@
 {% block main_content %}
 
 
-    <div class="d-flex bd-highlight flex-wrap">
+    <div class="d-flex bd-highlight">
         <div class="p-2 w-20 bd-highlight">
-            <img src="../../static/photos/logo.png" class="img-thumbnail" alt="logo">
+            <img src="../../static/photos/Doc_Star.png" class="img-thumbnail" alt="logo"
+                 style="background-color: transparent; max-width: 300px; max-height: 300px; border: none;">
         </div>
-        {% if user.is_authenticated %}
+        <div class="p-2 w-40 bd-highlight">
+            {% if user.is_authenticated %}
 
-            Hi {{ user.username }}!
-            <p><a href="{% url 'app_accounts:logout' %}">Log Out</a></p>
-
-        {% else %}
-            <div class="p-2 w-40 bd-highlight">
+            {% else %}
                 {% block login %}
 
                 {% endblock %}
-            </div>
-        {% endif %}
+            {% endif %}
+
+        </div>
+        <div class="p-2 w-40 bd-highlight">
+
+        </div>
     </div>
 
 {% endblock %}
