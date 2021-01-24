@@ -5,23 +5,22 @@
 {% block main_content %}
 
 
-    <div class="d-flex bd-highlight">
+    <div class="d-flex bd-highlight flex-wrap">
         <div class="p-2 w-20 bd-highlight">
             <img src="../../static/photos/logo.png" class="img-thumbnail" alt="logo">
         </div>
-        <div class="p-2 w-40 bd-highlight">
-            {% block login %}
+        {% if user.is_authenticated %}
 
-            {% endblock %}
-        </div>
-        <div class="p-2 w-40 bd-highlight">
-            {% block signup %}
+            Hi {{ user.username }}!
+            <p><a href="{% url 'logout' %}">Log Out</a></p>
 
-            {% endblock %}
-        </div>
+        {% else %}
+            <div class="p-2 w-40 bd-highlight">
+                {% block login %}
+
+                {% endblock %}
+            </div>
+        {% endif %}
     </div>
-
-
-
 
 {% endblock %}
