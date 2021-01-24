@@ -6,21 +6,15 @@ from django.forms import CharField, Form, Textarea
 from .models import Profile
 
 
-
-
 class SignUpForm(UserCreationForm):
-
     class Meta(UserCreationForm.Meta):
-        fields = ['username', 'first_name']
-
-    #biography = CharField(label='Opowiedz swoją historię z filmami', widget=Textarea, min_length=40)
+        fields = ['email', 'first_name']
 
     @atomic
     def save(self, commit=True):
         self.instance.is_active = False
         result = super().save(commit)
-        biography = self.cleaned_data['biography']
-        profile = Profile(biography=biography, user=result)
+        profile = Profile(user=result)
         if commit:
             profile.save()
         return result
