@@ -12,7 +12,6 @@ class Profile(Model):
     is_pro = BooleanField(default=False)
     name = CharField(max_length=128)
     surname = CharField(max_length=128)
-    user_id = AutoField(primary_key=True)
 
 
 class ContactBook(Model):
