@@ -10,7 +10,7 @@ from .forms import (SignUpForm)
 
 class MyPasswordChangeView(PasswordChangeView):
     template_name = 'password_change.html'
-    success_url = reverse_lazy('doc')
+    success_url = reverse_lazy('app_viewer:home')
 
 
 class SignUpView(CreateView):

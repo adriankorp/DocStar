@@ -18,6 +18,25 @@
                             <a class="nav-link" href="{% url 'app_accounts:sign-up' %}">Sign up</a>
                         {% endif %}
                     {% endblock %}
+                {% if user.is_authenticated %}
+                        <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">
+                            {% if user.first_name %}Witaj, {{ user.first_name }}!
+                            {% else %}Witaj, {{ user.username }}!{% endif %}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item text-right" href="{% url 'app_accounts:logout' %}">Wyloguj</a>
+                            <a class="dropdown-item text-right" href="#">Zmien
+                                haslo</a>
+                        </div>
+                    {% else %}
+                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
+                            Nie jestes zalogowany.
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item text-right" href="#">Zaloguj</a>
+                            <a class="dropdown-item text-right" href="{% url 'app_accounts:sign-up' %}">Zarejestruj sie</a>
+                        </div>
+                    {% endif %}
                 </nav>
             </div>
 
@@ -32,7 +51,8 @@
 
         <footer class="mastfoot mt-auto">
             <div class="inner">
-                © Copyrights. 2021 Fasola Team. All rights reserved. All trademarks are the property of their respective owners.
+                © Copyrights. 2021 Fasola Team. All rights reserved. All trademarks are the property of their respective
+                owners.
             </div>
         </footer>
     </div>
