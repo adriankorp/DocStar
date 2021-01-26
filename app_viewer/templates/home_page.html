@@ -12,7 +12,14 @@
         </div>
         <div class="p-2 w-40 bd-highlight">
             {% if user.is_authenticated %}
-
+                <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">
+                {% if user.first_name %}Hello, {{ user.first_name }}!
+                {% else %}Hello, {{ user.username }}!{% endif %}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item text-right" href="{% url 'app_accounts:logout' %}">Logout</a>
+                <a class="dropdown-item text-right" href="{% url 'app_accounts:password_change' %}">Change password</a>
+                </div>
             {% else %}
                 {% block login %}
 

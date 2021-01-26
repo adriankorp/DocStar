@@ -1,4 +1,4 @@
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.shortcuts import render
 from django.urls import reverse_lazy
 
@@ -8,6 +8,9 @@ from .forms import (SignUpForm)
 # Create your views here.
 
 
+class MyPasswordChangeView(PasswordChangeView):
+    template_name = 'password_change.html'
+    success_url = reverse_lazy('doc')
 
 
 class SignUpView(CreateView):
