@@ -6,3 +6,9 @@ class ContactForm(forms.Form):
     name = forms.CharField(required=True)
     subject = forms.CharField(required=True)
     message = forms.CharField(widget=forms.Textarea, required=True)
+
+
+class AddPrivatContact(forms.Form):
+    email = forms.EmailField(required=True)
+    name = forms.CharField(required=True)
+    surname = forms.CharField(required=True)
